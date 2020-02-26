@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluuter101/page2.dart';
 import 'package:fluuter101/page3.dart';
+import 'package:fluuter101/page4.dart';
+import 'package:fluuter101/page5.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,6 +30,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   void _incrementCounter() {
     setState(() {
@@ -38,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text(widget.title),
       ),
@@ -52,7 +56,19 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 20),
             RaisedButton(
               child: Text("Go to page 3"),
-              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => Page3())),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => Page3())).then((_) {
+                _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Deneme 1234")));
+              }),
+            ),
+            SizedBox(height: 20),
+            RaisedButton(
+                child: Text("Go to page 4"),
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => Page4()))),
+            SizedBox(height: 20),
+            RaisedButton(
+              child: Text("Go to page 5"),
+              onPressed: () =>
+                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => Page5(param: "Bu bir pparam"))),
             ),
             Text(
               'You have pushed the button this many times:',

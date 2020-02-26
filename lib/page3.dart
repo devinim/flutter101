@@ -39,7 +39,7 @@ class _Page3State extends State<Page3> {
                   return ListTile(
                     leading: Icon(Icons.cake),
                     title: Text(m['title']),
-                    subtitle: Text("${m['subtitle']} sadas sada"),
+                    subtitle: Text("${m['subtitle'].toString()} sadas sada"),
                   );
                 });
           }),
