@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluuter101/page2.dart';
+import 'package:fluuter101/page3.dart';
 
 void main() => runApp(MyApp());
 
@@ -47,6 +48,11 @@ class _MyHomePageState extends State<MyHomePage> {
             RaisedButton(
               child: Text("Go to page 2"),
               onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => Page2())),
+            ),
+            SizedBox(height: 20),
+            RaisedButton(
+              child: Text("Go to page 3"),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => Page3())),
             ),
             Text(
               'You have pushed the button this many times:',
